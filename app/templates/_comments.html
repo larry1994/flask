@@ -1,0 +1,15 @@
+<ul class="comments">
+    {% for comment in comments %}
+        <div class="comment-content"style="font-size:150%">
+            <div class="comment-date">{{ moment(comment.timestamp).format('LL') }}</div>
+            <div class="comment-author"><a href="{{ url_for('.user', username=comment.author.username) }}">{{ comment.author.username }}</a></div>
+            <div class="comment-body">
+                {% if comment.body_html %}
+                    {{ comment.body_html | safe }}
+                {% else %}
+                    {{ comment.body }}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</ul>

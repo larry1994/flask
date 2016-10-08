@@ -1,0 +1,4 @@
+<p>Hey,{{ user.username }}</p>
+<p>确认邮件地址<a href="{{url_for('auth.change_email',token=token,_external=True)}}">点我</a></p>
+<p>如果上面的地址失效，请复制下面的网址到浏览器访问</p>
+<p>{{ url_for('auth.change_email',token=token,_external=True)}}</p>

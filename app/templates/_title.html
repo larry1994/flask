@@ -1,0 +1,17 @@
+    {% for post in posts %}
+    <li class="post" style="margin-right: 10%;margin-left: 10%;
+                    font-size:150%">
+        <div class="post-content">
+            <div class="post-title">
+                <a href="/post/{{ post.id }}" ><p> {{ post.title }}</p></a>
+            </div>
+            <div class="post-footer">
+                {% if current_user.can(Permission.WRITE_ARTICLES) %}
+                <a href="{{url_for('.edit',id=post.id)}}">
+                    <span class="label label-danger">编辑</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </li>
+    {% endfor %}

@@ -1,0 +1,5 @@
+Hey,{{ user.username }}
+
+点下面的链接以确认邮件地址：
+
+{{ url_for('auth.change_email',token=token,_external=True) }}
